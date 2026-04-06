@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant ls {
+  @media (orientation: landscape) and (max-height: 500px);
+}
+
 @theme {
   --font-poppins: "Poppins", system-ui, sans-serif;
   --color-primary: #21337b;

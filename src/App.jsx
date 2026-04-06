@@ -190,11 +190,11 @@ function NerveMeter({ progress }) {
 function TimeBlock({ value, label }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-white/95 backdrop-blur rounded-2xl md:rounded-3xl shadow-xl border border-primary/10 w-[72px] h-[62px] sm:w-[100px] sm:h-[85px] md:w-[180px] md:h-[150px] flex items-center justify-center overflow-hidden">
+      <div className="bg-white/95 backdrop-blur rounded-2xl md:rounded-3xl shadow-xl border border-primary/10 w-[72px] h-[62px] sm:w-[100px] sm:h-[85px] md:w-[180px] md:h-[150px] ls:w-[80px] ls:h-[52px] flex items-center justify-center overflow-hidden">
         <AnimatePresence mode="popLayout">
           <motion.div
             key={value}
-            className="text-3xl sm:text-5xl md:text-8xl font-extrabold text-primary tabular-nums tracking-tight leading-none text-center"
+            className="text-3xl sm:text-5xl md:text-8xl ls:text-2xl font-extrabold text-primary tabular-nums tracking-tight leading-none text-center"
             style={{ fontVariantNumeric: "tabular-nums" }}
             initial={{ y: -30, scale: 1.2, opacity: 0 }}
             animate={{ y: 0, scale: 1, opacity: 1 }}
@@ -210,7 +210,7 @@ function TimeBlock({ value, label }) {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="text-[10px] sm:text-xs md:text-base font-semibold text-primary/50 mt-1 md:mt-3 uppercase tracking-widest">
+      <div className="text-[10px] sm:text-xs md:text-base ls:text-[8px] font-semibold text-primary/50 mt-1 md:mt-3 ls:mt-0.5 uppercase tracking-widest">
         {label}
       </div>
     </div>
@@ -490,7 +490,7 @@ function SuccessState() {
         transition={{ type: "spring", duration: 1, bounce: 0.5 }}
       >
         <motion.div
-          className="text-5xl md:text-8xl mb-4 md:mb-6"
+          className="text-5xl md:text-8xl ls:text-3xl mb-4 md:mb-6 ls:mb-2"
           animate={{ rotate: [0, -10, 10, -10, 0], scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -498,7 +498,7 @@ function SuccessState() {
         </motion.div>
 
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl ls:text-2xl font-black mb-4 md:mb-6 ls:mb-2"
           style={{
             background: "linear-gradient(135deg, #FFD700, #FFA500, #FFD700)",
             WebkitBackgroundClip: "text",
@@ -512,7 +512,7 @@ function SuccessState() {
         </motion.h1>
 
         <motion.p
-          className="text-base sm:text-xl md:text-2xl text-gold-light font-semibold mb-4 px-4"
+          className="text-base sm:text-xl md:text-2xl ls:text-sm text-gold-light font-semibold mb-4 ls:mb-2 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
@@ -521,7 +521,7 @@ function SuccessState() {
         </motion.p>
 
         <motion.div
-          className="mt-6 md:mt-8 text-4xl md:text-6xl"
+          className="mt-6 md:mt-8 ls:mt-2 text-4xl md:text-6xl ls:text-2xl"
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
@@ -530,7 +530,7 @@ function SuccessState() {
       </motion.div>
 
       {/* Golden progress bar at full */}
-      <div className="absolute bottom-8 md:bottom-12 left-0 right-0 px-6 md:px-12">
+      <div className="absolute bottom-8 md:bottom-12 ls:bottom-3 left-0 right-0 px-6 md:px-12">
         <div className="w-full h-6 rounded-full overflow-hidden shadow-lg"
           style={{ background: "rgba(255,215,0,0.2)" }}
         >
@@ -544,7 +544,7 @@ function SuccessState() {
             transition={{ duration: 2, ease: "easeOut" }}
           />
         </div>
-        <div className="text-center mt-2 text-gold-light font-bold text-lg">
+        <div className="text-center mt-2 ls:mt-1 text-gold-light font-bold text-lg ls:text-sm">
           1 000 000 Kč — Mise splněna! ✅
         </div>
       </div>
@@ -625,9 +625,9 @@ function CountdownState({ days, hours, minutes, seconds, progress }) {
       </div>
 
       {/* Center — main countdown */}
-      <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8">
+      <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 ls:gap-2">
         <motion.h1
-          className="text-2xl sm:text-4xl md:text-6xl font-extrabold text-primary leading-tight text-center"
+          className="text-2xl sm:text-4xl md:text-6xl ls:text-xl font-extrabold text-primary leading-tight text-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -664,7 +664,7 @@ function CountdownState({ days, hours, minutes, seconds, progress }) {
             }}
           >
             <span
-              className="text-4xl sm:text-6xl md:text-8xl uppercase font-black"
+              className="text-4xl sm:text-6xl md:text-8xl ls:text-3xl uppercase font-black"
               style={{
                 background: "linear-gradient(135deg, #FFD700, #FFA500, #FFD700)",
                 backgroundSize: "200% 200%",
@@ -678,19 +678,19 @@ function CountdownState({ days, hours, minutes, seconds, progress }) {
         </motion.h1>
 
         {/* Timer blocks */}
-        <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-6 ls:gap-1.5">
           <TimeBlock value={days} label="Dní" />
-          <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-primary/30 mt-[-12px] md:mt-[-24px]">:</div>
+          <div className="text-2xl sm:text-4xl md:text-6xl ls:text-xl font-bold text-primary/30 mt-[-12px] md:mt-[-24px] ls:mt-[-8px]">:</div>
           <TimeBlock value={hours} label="Hodin" />
-          <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-primary/30 mt-[-12px] md:mt-[-24px]">:</div>
+          <div className="text-2xl sm:text-4xl md:text-6xl ls:text-xl font-bold text-primary/30 mt-[-12px] md:mt-[-24px] ls:mt-[-8px]">:</div>
           <TimeBlock value={minutes} label="Minut" />
-          <div className="text-2xl sm:text-4xl md:text-6xl font-bold text-primary/30 mt-[-12px] md:mt-[-24px]">:</div>
+          <div className="text-2xl sm:text-4xl md:text-6xl ls:text-xl font-bold text-primary/30 mt-[-12px] md:mt-[-24px] ls:mt-[-8px]">:</div>
           <TimeBlock value={seconds} label="Sekund" />
         </div>
 
         {/* Subtext */}
         <motion.p
-          className="text-sm sm:text-lg md:text-[1.7rem] text-primary/60 font-medium text-center mt-2"
+          className="text-sm sm:text-lg md:text-[1.7rem] ls:text-xs text-primary/60 font-medium text-center mt-2 ls:mt-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
