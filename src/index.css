@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: "Poppins", system-ui, sans-serif;
+  --color-primary: #21337b;
+  --color-primary-light: #f2f3fd;
+  --color-accent-orange: #ffb700;
+  --color-success: #3d9e35;
+  --color-gold: #d4a017;
+  --color-gold-light: #f5e6a3;
+}
+
+* {
+  cursor: none !important;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes banknote-fall {
+  0% {
+    top: -30px;
+    opacity: 1;
+  }
+  60% {
+    top: calc(100% + 30px);
+    opacity: 1;
+  }
+  61% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    top: calc(100% + 30px);
+  }
+}
+
+@keyframes banknote-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
