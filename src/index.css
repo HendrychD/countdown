@@ -42,13 +42,94 @@ body {
   display: none;
 }
 
+/* --- GPU-friendly CSS animations (replacing framer-motion) --- */
+
+.css-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.css-breathe {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+.css-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.css-bounce {
+  animation: bounce-y 1.5s ease-in-out infinite;
+}
+
+.css-glow {
+  animation: glow 4s ease-in-out infinite;
+}
+
+.css-fill-bar {
+  animation: fill-bar 2s ease-out forwards;
+}
+
+.css-float-1 {
+  animation: float-1 45s ease-in-out infinite;
+  will-change: transform;
+}
+
+.css-float-2 {
+  animation: float-2 55s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.15); }
+  75% { transform: rotate(10deg) scale(1.15); }
+}
+
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255, 165, 0, 0.15)); }
+  50% { filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.25)); }
+}
+
+@keyframes fill-bar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(-10vw, -5vh); }
+  25% { transform: translate(20vw, 15vh); }
+  50% { transform: translate(-5vw, 25vh); }
+  75% { transform: translate(10vw, -10vh); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translate(10vw, 10vh); }
+  25% { transform: translate(-15vw, -10vh); }
+  50% { transform: translate(5vw, -20vh); }
+  75% { transform: translate(-20vw, 5vh); }
+}
+
 @keyframes banknote-fall {
   0% {
-    top: -30px;
+    transform: translateY(0);
     opacity: 1;
   }
   60% {
-    top: calc(100% + 30px);
+    transform: translateY(calc(100vh + 60px));
     opacity: 1;
   }
   61% {
@@ -56,15 +137,11 @@ body {
   }
   100% {
     opacity: 0;
-    top: calc(100% + 30px);
+    transform: translateY(calc(100vh + 60px));
   }
 }
 
 @keyframes banknote-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
