@@ -196,9 +196,9 @@ function TimeBlock({ value, label }) {
             key={value}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl ls:text-2xl font-extrabold text-primary tabular-nums tracking-tight leading-none text-center"
             style={{ fontVariantNumeric: "tabular-nums" }}
-            initial={{ y: -30, scale: 1.2, opacity: 0 }}
+            initial={false}
             animate={{ y: 0, scale: 1, opacity: 1 }}
-            exit={{ y: 30, scale: 0.8, opacity: 0 }}
+            exit={{ y: 30, scale: 0.8, opacity: 0.5 }}
             transition={{
               type: "spring",
               stiffness: 400,
@@ -339,7 +339,7 @@ function MoneyPile({ progress }) {
         {/* The pile — tightly stacked banknotes, covers falling ones */}
         <motion.div
           className="absolute bottom-0 left-0 right-0"
-          initial={{ height: 0 }}
+          initial={false}
           animate={{ height: `${pileHeight}%` }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           style={{ zIndex: 10, overflow: "hidden" }}
@@ -485,7 +485,7 @@ function SuccessState() {
 
       <motion.div
         className="text-center z-10"
-        initial={{ scale: 0, opacity: 0 }}
+        initial={false}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", duration: 1, bounce: 0.5 }}
       >
@@ -513,7 +513,7 @@ function SuccessState() {
 
         <motion.p
           className="text-base sm:text-xl md:text-2xl ls:text-sm text-gold-light font-semibold mb-4 ls:mb-2 px-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
@@ -539,7 +539,7 @@ function SuccessState() {
             style={{
               background: "linear-gradient(90deg, #FFD700, #FFA500, #FFD700)",
             }}
-            initial={{ width: 0 }}
+            initial={false}
             animate={{ width: "100%" }}
             transition={{ duration: 2, ease: "easeOut" }}
           />
@@ -628,7 +628,7 @@ function CountdownState({ days, hours, minutes, seconds, progress }) {
       <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 ls:gap-2">
         <motion.h1
           className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl ls:text-xl font-extrabold text-primary leading-tight text-center"
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={false}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
@@ -641,7 +641,7 @@ function CountdownState({ days, hours, minutes, seconds, progress }) {
               WebkitTextFillColor: "transparent",
             }}
             key={days}
-            initial={{ scale: 1.15, opacity: 0.7 }}
+            initial={false}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -691,7 +691,7 @@ function CountdownState({ days, hours, minutes, seconds, progress }) {
         {/* Subtext */}
         <motion.p
           className="text-sm sm:text-base md:text-lg lg:text-[1.7rem] ls:text-xs text-primary-60 font-medium text-center mt-2 ls:mt-1"
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
@@ -714,7 +714,7 @@ export default function App() {
       {countdown.done ? (
         <motion.div
           key="success"
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
@@ -723,7 +723,7 @@ export default function App() {
       ) : (
         <motion.div
           key="countdown"
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
         >
           <CountdownState {...countdown} />
