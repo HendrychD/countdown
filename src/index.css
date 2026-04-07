@@ -8,10 +8,16 @@
   --font-poppins: "Poppins", system-ui, sans-serif;
   --color-primary: #21337b;
   --color-primary-light: #f2f3fd;
+  --color-primary-10: rgba(33, 51, 123, 0.1);
+  --color-primary-30: rgba(33, 51, 123, 0.3);
+  --color-primary-50: rgba(33, 51, 123, 0.5);
+  --color-primary-60: rgba(33, 51, 123, 0.6);
   --color-accent-orange: #ffb700;
   --color-success: #3d9e35;
   --color-gold: #d4a017;
   --color-gold-light: #f5e6a3;
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-95: rgba(255, 255, 255, 0.95);
 }
 
 * {
