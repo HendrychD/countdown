@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, memo } from "react";
 import confetti from "canvas-confetti";
 
-const DEADLINE = new Date("2026-05-31T23:59:59").getTime();
+const DEADLINE = new Date("2026-06-01T12:00:00").getTime();
 const PROJECT_START = new Date("2026-04-01T00:00:00").getTime();
 
 function useCountdown() {
