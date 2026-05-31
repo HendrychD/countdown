@@ -178,12 +178,14 @@ const MoneyPile = memo(function MoneyPile({ progress }) {
     []
   );
 
+  // Enough rows to overflow the tallest column, so the clip (pileHeight%) is
+  // always packed with notes and the pile height tracks progress.
   const pileRows = useMemo(
     () =>
-      Array.from({ length: 15 }, (_, row) =>
+      Array.from({ length: 48 }, (_, row) =>
         Array.from({ length: 2 }, (_, col) => ({
           id: row * 2 + col,
-          offsetX: (col - 0.5) * 20 + (Math.random() - 0.5) * 6,
+          offsetX: (col - 0.5) * 28 + (Math.random() - 0.5) * 8,
           rotate: (Math.random() - 0.5) * 20,
         }))
       ),
@@ -218,7 +220,7 @@ const MoneyPile = memo(function MoneyPile({ progress }) {
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: 12,
+                  height: 20,
                   flexShrink: 0,
                 }}
               >
@@ -232,7 +234,7 @@ const MoneyPile = memo(function MoneyPile({ progress }) {
                       transform: `translateX(calc(-50% + ${note.offsetX}px)) rotate(${note.rotate}deg)`,
                     }}
                   >
-                    <Banknote width={30} height={14} />
+                    <Banknote width={42} height={22} />
                   </div>
                 ))}
               </div>
